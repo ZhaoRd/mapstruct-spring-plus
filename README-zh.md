@@ -1,7 +1,7 @@
 # mapstruct-spring-plus
-It is an enhanced package of mapstruct and spring, which simplifies the use of mapstruct combined with spring. The implementation method refers to the mapstruct-spring-extensions project
+是mapstruct和spring的增强包，简化mapstruct结合spring的使用方式，实现方式参考了mapstruct-spring-extensions项目
 
-Create Dto and Entity
+创建Dto和Entity
 ``` java
 @Data
 @AutoMap(targetType = Car.class)
@@ -20,10 +20,10 @@ public class Car {
 }
 ```
 
-## Use MapStruct Spring Plus
+## 使用 MapStruct Spring Plus
 
 ### Maven
-For maven projects, use the following POM file
+对于maven项目，使用如下的POM文件
 
 ```xml
 
@@ -77,7 +77,7 @@ For maven projects, use the following POM file
 ```
 
 ###  Gradle
-For Gradle projects, use the following configuration
+对于Gradle项目，使用如下配置
 
 ``` gradle
 dependencies {
@@ -94,8 +94,8 @@ dependencies {
 }
 ```
 
-### Use Cases
-Inject `IObjectMapper` in spring, call `objectMapper.map(dto, Car.class)`
+### 使用案例
+sprign中注入 `IObjectMapper`, 调用 `objectMapper.map(dto, Car.class)`
 
 ``` java
 
@@ -136,6 +136,6 @@ public class AutoMapTests {
 
 ```
 
-## Wiki
-* `@Mapping` Annotation attributes
-  `@AutoMapField` inherits from the annotation of `@Mapping`, all the attributes of `@Mapping` can be used in `@AutoMapField`
+## 问题
+* `@Mapping` 注解属性
+  `@AutoMapField` 继承自`@Mapping` 注解，素有`@Mapping`属性都可以在`@AutoMapField`中使用
