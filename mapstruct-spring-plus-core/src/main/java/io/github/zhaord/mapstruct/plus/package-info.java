@@ -1,0 +1,1 @@
+package io.github.zhaord.mapstruct.plus;

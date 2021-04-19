@@ -1,0 +1,10 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    compile project(':mapstruct-spring-plus-core')
+
+    implementation 'com.squareup:javapoet:1.13.0'
+    implementation 'org.apache.commons:commons-lang3:3.11'
+}

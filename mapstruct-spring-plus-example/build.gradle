@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    implementation project(':mapstruct-spring-plus-boot-starter')
+    implementation group: 'org.mapstruct', name: 'mapstruct', version: "${mapstructVersion}"
+
+    annotationProcessor project(":mapstruct-spring-plus-processor")
+    testAnnotationProcessor project(":mapstruct-spring-plus-processor")
+
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+    testAnnotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+
+
+}

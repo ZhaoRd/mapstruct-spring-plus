@@ -1,0 +1,9 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    compileOnly "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter:${springBootVersion}"
+    compile project(":mapstruct-spring-plus-core")
+}

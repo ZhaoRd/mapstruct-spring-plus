@@ -1,0 +1,57 @@
+plugins {
+    id 'idea'
+}
+
+group 'io.github.zhaord'
+version '1.0-SNAPSHOT'
+
+ext{
+    springVersion = '5.0.0.RELEASE'
+    springBootVersion = '2.4.4'
+    mockitoVersion = '3.8.0'
+    assertjVersion = '3.19.0'
+    lombokVersion = '1.18.18'
+    mapstructVersion = '1.4.2.Final'
+}
+
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    compileJava.options.encoding = "UTF-8"
+    compileTestJava.options.encoding = "UTF-8"
+
+
+    repositories {
+        mavenLocal()
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/spring/'
+        }
+        mavenCentral()
+    }
+
+    dependencies {
+
+        testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: "${springBootVersion}"
+        testImplementation group: 'org.mockito', name: 'mockito-core', version: "${mockitoVersion}"
+        testImplementation group: 'org.assertj', name: 'assertj-core', version: "${assertjVersion}"
+
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+        testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+        testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    }
+
+    test{
+        useJUnitPlatform()
+    }
+
+}

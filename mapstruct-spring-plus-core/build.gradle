@@ -1,0 +1,13 @@
+plugins {
+    id 'java'
+}
+
+
+dependencies {
+
+    compile "org.springframework:spring-core:${springVersion}"
+    compile "org.springframework:spring-context:${springVersion}"
+
+    compile group: 'org.mapstruct', name: 'mapstruct', version: "${mapstructVersion}"
+
+}
