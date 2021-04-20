@@ -1,9 +1,11 @@
 plugins {
     id 'idea'
+    id 'java-library'
+    id 'jacoco'
+    id 'maven-publish'
+    id 'signing'
+    id "com.github.ben-manes.versions" version "0.36.0"
 }
-
-group 'io.github.zhaord'
-version '1.0-SNAPSHOT'
 
 ext{
     springVersion = '5.0.0.RELEASE'
@@ -18,14 +20,16 @@ tasks.withType(JavaCompile){
     options.encoding = "UTF-8"
 }
 
-subprojects {
-    apply plugin: 'java'
+allprojects {
 
-    compileJava.options.encoding = "UTF-8"
-    compileTestJava.options.encoding = "UTF-8"
+    group 'io.github.zhaord'
+    version '1.0.0.SNAPSHOT'
 
+    apply plugin: "java-library"
+    apply plugin: "jacoco"
 
     repositories {
+        jcenter()
         mavenLocal()
         maven {
             url 'https://maven.aliyun.com/repository/public/'
@@ -35,6 +39,16 @@ subprojects {
         }
         mavenCentral()
     }
+}
+
+subprojects {
+
+
+
+    apply plugin: 'java'
+
+    compileJava.options.encoding = "UTF-8"
+    compileTestJava.options.encoding = "UTF-8"
 
     dependencies {
 

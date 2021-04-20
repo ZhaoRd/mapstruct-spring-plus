@@ -1,5 +1,11 @@
-plugins {
-    id 'java'
+
+
+apply plugin: "maven-publish"
+apply plugin: "signing"
+
+java {
+    withJavadocJar()
+    withSourcesJar()
 }
 
 dependencies {
@@ -7,4 +13,61 @@ dependencies {
 
     implementation 'com.squareup:javapoet:1.13.0'
     implementation 'org.apache.commons:commons-lang3:3.11'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'mapstruct-spring-plus-processor'
+            from components.java
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                name = 'Mapstruct Spring Plus Processor'
+                description = 'Spring MapStruct plus'
+                url = ''
+                packaging = 'jar'
+
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://github.com/ZhaoRd/mapstruct-spring-plus/blob/main/LICENSE'
+                    }
+                }
+                developers {
+                    developer {
+                        name = 'zhaorende'
+                        email = '1260825783@qq.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/ZhaoRd/mapstruct-spring-plus.git'
+                    developerConnection = 'scm:git:https://github.com/ZhaoRd/mapstruct-spring-plus.git'
+                    url = 'https://github.com/ZhaoRd/mapstruct-spring-plus'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+
+            credentials {
+                username sonatypeUsername
+                password sonatypePassword
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
 }

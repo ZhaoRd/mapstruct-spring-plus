@@ -13,7 +13,4 @@ public class CarDto {
     private SeatConfigurationDto seats;
     private String type;
 
-    @AutoMapField(target = "seatConfiguration")
-    private String fromSeatName;
-
 }
