@@ -22,8 +22,7 @@ tasks.withType(JavaCompile){
 
 allprojects {
 
-    group 'io.github.zhaord'
-    version '1.0.0.SNAPSHOT'
+
 
     apply plugin: "java-library"
     apply plugin: "jacoco"
@@ -44,11 +43,13 @@ allprojects {
 subprojects {
 
 
+    apply plugin: "java-library"
+    apply plugin: "jacoco"
 
-    apply plugin: 'java'
+    group 'io.github.zhaord'
+    version '1.0.0.RELEASE'
 
-    compileJava.options.encoding = "UTF-8"
-    compileTestJava.options.encoding = "UTF-8"
+    [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
 
     dependencies {
 
@@ -67,5 +68,12 @@ subprojects {
     test{
         useJUnitPlatform()
     }
+
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(8))
+        }
+    }
+
 
 }
