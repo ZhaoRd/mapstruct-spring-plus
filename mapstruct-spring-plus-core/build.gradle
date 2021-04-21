@@ -8,6 +8,10 @@ java {
     withSourcesJar()
 }
 
+jar{
+    archiveFileName = 'mapstruct-spring-plus-core.jar'
+}
+
 dependencies {
 
     compile "org.springframework:spring-core:${springVersion}"

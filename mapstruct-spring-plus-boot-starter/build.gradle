@@ -8,6 +8,12 @@ java {
     withSourcesJar()
 }
 
+
+jar{
+    archiveFileName = 'mapstruct-spring-plus-boot-starter.jar'
+}
+
+
 dependencies {
     compileOnly "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
     implementation "org.springframework.boot:spring-boot-starter:${springBootVersion}"
