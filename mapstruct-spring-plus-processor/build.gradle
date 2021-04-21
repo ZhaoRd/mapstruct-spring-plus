@@ -36,7 +36,7 @@ publishing {
             pom {
                 name = 'Mapstruct Spring Plus Processor'
                 description = 'Spring MapStruct plus'
-                url = ''
+                url = 'https://github.com/ZhaoRd/mapstruct-spring-plus'
                 packaging = 'jar'
 
                 licenses {

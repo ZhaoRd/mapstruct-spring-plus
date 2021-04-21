@@ -47,7 +47,7 @@ subprojects {
     apply plugin: "jacoco"
 
     group 'io.github.zhaord'
-    version '1.0.0.RELEASE'
+    version '1.0.0.SNAPSHOT'
 
     [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
 
