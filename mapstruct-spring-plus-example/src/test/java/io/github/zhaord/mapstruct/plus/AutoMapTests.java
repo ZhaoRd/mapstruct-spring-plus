@@ -4,9 +4,6 @@ import lombok.var;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -14,7 +11,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(
-        classes = {AutoMapTests.AutoMapTestConfiguration.class})
+        classes = {MapStructPlusTestConfiguration.class})
 public class AutoMapTests {
 
     @Autowired
@@ -45,15 +42,5 @@ public class AutoMapTests {
 
 
     }
-
-
-    @ComponentScan("io.github.zhaord.mapstruct.plus")
-    @Configuration
-    @Component
-    static class AutoMapTestConfiguration {
-
-
-    }
-
 
 }

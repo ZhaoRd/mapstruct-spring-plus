@@ -1,22 +1,17 @@
 package io.github.zhaord.mapstruct.plus.processor;
 
 import com.squareup.javapoet.ClassName;
-import com.squareup.javapoet.TypeName;
 import io.github.zhaord.mapstruct.plus.annotations.AutoMap;
 import io.github.zhaord.mapstruct.plus.annotations.AutoMapField;
-import org.apache.commons.lang3.tuple.MutablePair;
-import org.apache.commons.lang3.tuple.Pair;
-
 
 import javax.annotation.processing.AbstractProcessor;
+import javax.annotation.processing.Filer;
 import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
-import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
-import javax.lang.model.type.DeclaredType;
 import javax.lang.model.type.MirroredTypeException;
 import javax.lang.model.type.MirroredTypesException;
 import javax.lang.model.type.TypeMirror;
@@ -25,7 +20,6 @@ import java.io.Writer;
 import java.time.Clock;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 import static io.github.zhaord.mapstruct.plus.processor.Const.BASE_PACKAGE;
@@ -188,9 +182,10 @@ public class AutomapProcessor extends AbstractProcessor {
     }
 
     private void writerAutoMapSpringConfig(){
+        Filer filer = processingEnv
+                .getFiler();
         try (final Writer outputWriter =
-                     processingEnv
-                             .getFiler()
+                            filer
                              .createSourceFile(BASE_PACKAGE+ ".AutoMapSpringConfig")
                              .openWriter()) {
             autoMapSpringConfigGenerator.write(BASE_PACKAGE, outputWriter);
@@ -199,7 +194,7 @@ public class AutomapProcessor extends AbstractProcessor {
                     .getMessager()
                     .printMessage(
                             WARNING,
-                            "Error while opening "
+                            " while opening "
                                     + "AutoMapSpringConfig"
                                     + " output file: "
                                     + e.getMessage());

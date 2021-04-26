@@ -90,6 +90,9 @@ public class AutoMapSpringProcessor extends AbstractProcessor {
                         .map(this::toFromToMapping)
                         .collect(toList());
         descriptor.setFromToMappings(fromToMappings);
+        if (fromToMappings.isEmpty()){
+            return;
+        }
         writeAdapterClassFile(descriptor, adapterPackageAndClass);
     }
 

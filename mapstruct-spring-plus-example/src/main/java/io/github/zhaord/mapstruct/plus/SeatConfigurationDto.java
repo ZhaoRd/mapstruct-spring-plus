@@ -11,6 +11,4 @@ public class SeatConfigurationDto {
     private int seatCount;
     @AutoMapField(target = "seatMaterial")
     private String material;
-
-    private String name;
 }
