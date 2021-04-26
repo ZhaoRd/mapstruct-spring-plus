@@ -31,7 +31,7 @@ For maven projects, use the following POM file
 
 <properties>
     <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
-    <io.github.zhaord.version>1.0.0.RELEASE</io.github.zhaord.version>
+    <io.github.zhaord.version>1.0.1.RELEASE</io.github.zhaord.version>
 </properties>
 ...
 <dependencies>
@@ -83,13 +83,13 @@ For Gradle projects, use the following configuration
 dependencies {
     ...
     compile 'org.mapstruct:mapstruct:1.4.2.Final'
-    compile 'io.github.zhaord:mapstruct-spring-plus-boot-starter:1.0.0.RELEASE'
+    compile 'io.github.zhaord:mapstruct-spring-plus-boot-starter:1.0.1.RELEASE'
 
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
     testAnnotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final' // if you are using mapstruct in test code
 
-    annotationProcessor 'io.github.zhaord:mapstruct-spring-plus-processor:1.0.0.RELEASE'
-    testAnnotationProcessor 'io.github.zhaord:mapstruct-spring-plus-processor:1.0.0.RELEASE' // if you are using mapstruct in test code
+    annotationProcessor 'io.github.zhaord:mapstruct-spring-plus-processor:1.0.1.RELEASE'
+    testAnnotationProcessor 'io.github.zhaord:mapstruct-spring-plus-processor:1.0.1.RELEASE' // if you are using mapstruct in test code
     ...
 }
 ```
